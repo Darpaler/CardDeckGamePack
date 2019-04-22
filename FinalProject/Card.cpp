@@ -17,9 +17,11 @@ string Card::GetSuit()
 
 void Card::SetSuit(Suits newSuit)
 {
-	if (newSuit > 4) 
+	if (newSuit >= 4) 
 	{
 		//TODO: loop through enums
+		newSuit = Suits(newSuit - 4);
+
 	}
 	switch (newSuit)
 	{
