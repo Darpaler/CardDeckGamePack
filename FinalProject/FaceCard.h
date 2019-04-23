@@ -6,7 +6,7 @@ public:
 	FaceCard();
 	~FaceCard();
 
-	enum Faces {Ace, Jack, Queen, King};
-	void SetRank(Faces face);
+	enum Faces {Ace, Jack, Queen, King, COUNT};
+	void SetRank(Faces face, int gameType);
 };
 

@@ -4,21 +4,24 @@
 
 Deck::Deck()
 {
-	for (int i = 0; i < DECK_SIZE; i++) 
+	PipCard pCard;
+	FaceCard fCard;
+	Card card;
+	//TODO: Test enum loops
+	for (int i = 0; i < DECK_SIZE; i++)
 	{
-		//TODO: Create a deck of each card
-		if (i < 36) 
+		if (i - (SUIT_SIZE * (i / SUIT_SIZE)) < 9)
 		{
-			PipCard card;
-			card.SetRank((PipCard::Pips)i);
-			card.SetSuit((Card::Suits)i);
-			cards[i] = card;
+			pCard.SetRank((PipCard::Pips)(i - (SUIT_SIZE * (i / SUIT_SIZE))));
+			card = pCard;
 		}
-		else 
+		else
 		{
-			FaceCard card;
-			cards[i] = card;
+			fCard.SetRank((FaceCard::Faces)((i - (SUIT_SIZE * (i / SUIT_SIZE))) - PIPS_PER_SUIT), 1);
+			card = fCard;
 		}
+		card.SetSuit((Card::Suits)(i / SUIT_SIZE));
+		cards.push_back(card);
 	}
 }
 

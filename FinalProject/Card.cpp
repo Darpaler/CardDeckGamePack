@@ -17,10 +17,10 @@ string Card::GetSuit()
 
 void Card::SetSuit(Suits newSuit)
 {
-	if (newSuit >= 4) 
+	if (newSuit >= Suits::COUNT) 
 	{
 		//TODO: loop through enums
-		newSuit = Suits(newSuit - 4);
+		newSuit = Suits(newSuit - (Suits::COUNT * (newSuit/Suits::COUNT)));
 
 	}
 	switch (newSuit)
@@ -40,7 +40,12 @@ void Card::SetSuit(Suits newSuit)
 	}
 }
 
-int Card::GetRank()
+string Card::GetRank()
 {
 	return rank;
+}
+
+int Card::GetValue()
+{
+	return value;
 }

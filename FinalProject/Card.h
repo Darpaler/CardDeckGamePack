@@ -10,16 +10,18 @@ public:
 	Card();
 	~Card();
 
-	enum Suits { Spades, Clubs, Diamonds, Hearts };
+	enum Suits { Spades, Clubs, Diamonds, Hearts, COUNT };
 
 	string GetSuit();
 	void SetSuit(Suits suit);
-	int GetRank();
+	string GetRank();
+	int GetValue();
 
 private:
 	string suit;
 	
 protected:
-	int rank;
+	string rank;
+	int value;
 };
 
