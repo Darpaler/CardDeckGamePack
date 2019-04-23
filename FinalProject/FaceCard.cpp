@@ -10,11 +10,12 @@ FaceCard::~FaceCard()
 {
 }
 
+//Set face cards using a face and set the value depending on the game type
 void FaceCard::SetRank(Faces face, int gameType)
 {
 	if (face >= Faces::COUNT)
 	{
-		//TODO: loop through enums
+		//Loops through faces if it exceeds the enum
 		face = Faces(face - (Faces::COUNT * (face / Faces::COUNT)));
 
 	}
@@ -33,18 +34,24 @@ void FaceCard::SetRank(Faces face, int gameType)
 		rank = "King";
 		break;
 	}
+	
 	switch (gameType)
 	{
+	//Black Jack Rules
 	case 0:
 		if (face == Ace) 
 		{
-			//TODO: Ace is 1 or 11
-			value = 0;
+			//Ace is 1 or 11
+			value = 1;
 		}
 		else
 		{
+			//Face cards are all 10
 			value = 10;
 		}
+		break;
+
+	//War Rules
 	case 1:
 		if (face == Ace)
 		{
@@ -53,8 +60,12 @@ void FaceCard::SetRank(Faces face, int gameType)
 		}
 		else
 		{
+			//Face values are in order and higher than pip cards
 			value = face + 10;
 		}
+		break;
+
+	//Generic Rules
 	default:
 		if (face == Ace)
 		{
@@ -63,6 +74,7 @@ void FaceCard::SetRank(Faces face, int gameType)
 		}
 		else
 		{
+			//Face values are in order and higher than pip cards
 			value = face + 10;
 		}
 		break;

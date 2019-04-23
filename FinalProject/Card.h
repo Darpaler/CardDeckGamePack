@@ -7,21 +7,28 @@ class Card
 {
 
 public:
+	//Constructors
 	Card();
 	~Card();
 
+	//The different Suits
 	enum Suits { Spades, Clubs, Diamonds, Hearts, COUNT };
 
+	//Getters
 	string GetSuit();
-	void SetSuit(Suits suit);
 	string GetRank();
 	int GetValue();
 
+	//Setters
+	void SetSuit(Suits suit);
+	void SetRank(string newRank);
+	void SetValue(int newValue);
+
 private:
-	string suit;
+	string suit;	//The cards current suit
 	
 protected:
-	string rank;
-	int value;
+	string rank;	//The cards number or face
+	int value;		//The cards value dependent on the game type
 };
 

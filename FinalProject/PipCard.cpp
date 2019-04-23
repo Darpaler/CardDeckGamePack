@@ -6,16 +6,16 @@ PipCard::PipCard()
 {
 }
 
-
 PipCard::~PipCard()
 {
 }
 
+//Set pip cards using a pip, independent of game type
 void PipCard::SetRank(Pips pip)
 {
 	if (pip >= Pips::COUNT)
 	{
-		//TODO: loop through enums
+		//Loops through pips if it exceeds the enum
 		pip = Pips(pip - (Pips::COUNT * (pip/Pips::COUNT)));
 
 	}
@@ -49,5 +49,6 @@ void PipCard::SetRank(Pips pip)
 		rank = "Ten";
 		break;
 	}
+	//Pip values start at 2
 	value = pip + 2;
 }
